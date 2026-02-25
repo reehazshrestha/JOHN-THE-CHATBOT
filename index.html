@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOHN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <style>
+      body { background: #212121; }
+      .prose p { margin-bottom: 0.6em; }
+      .prose p:last-child { margin-bottom: 0; }
+      .prose ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 0.6em; }
+      .prose ol { list-style: decimal; padding-left: 1.25rem; margin-bottom: 0.6em; }
+      .prose li { margin-bottom: 0.2em; }
+      .prose strong { font-weight: 600; color: #fafafa; }
+      .prose code { background: #2f2f2f; color: #d4d4d8; padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.85em; }
+      .prose pre { position: relative; background: #1e1e1e; border: 1px solid #3f3f3f; border-radius: 0.75rem; padding: 1rem 1.1rem; overflow-x: auto; margin-bottom: 0.75em; }
+      .prose pre code { background: none; color: #e4e4e7; padding: 0; font-size: 0.82em; }
+      .prose h1, .prose h2, .prose h3 { font-weight: 600; color: #fafafa; margin-bottom: 0.4em; margin-top: 0.8em; }
+      .prose a { color: #a1a1aa; text-decoration: underline; }
+      .prose blockquote { border-left: 3px solid #52525b; padding-left: 0.75rem; color: #a1a1aa; margin-bottom: 0.6em; }
+      .copy-btn { position: absolute; top: 0.5rem; right: 0.5rem; background: #2f2f2f; color: #71717a; border: 1px solid #3f3f3f; border-radius: 6px; padding: 0.25em 0.6em; font-size: 0.72em; cursor: pointer; transition: background 0.15s, color 0.15s; }
+      .copy-btn:hover { background: #3f3f3f; color: #fafafa; }
+      .copy-btn.copied { color: #34d399; border-color: #34d399; }
+      @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+      .cursor { display: inline-block; width: 2px; height: 1em; background: #d4d4d8; margin-left: 1px; vertical-align: text-bottom; animation: blink 0.7s step-end infinite; }
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #3f3f3f; border-radius: 3px; }
+    </style>
+  </head>
+  <body class="text-white h-screen flex flex-col">
+
+    <!-- Header -->
+    <header class="border-b border-[#2f2f2f] px-6 py-3 flex items-center gap-3" style="background:#212121">
+      <div class="w-8 h-8 rounded-full bg-zinc-700 flex items-center justify-center text-sm">
+        <i class="fa-solid fa-robot"></i>
+      </div>
+      <div>
+        <p class="font-semibold text-sm">JOHN</p>
+        <p class="text-xs text-green-400">Online</p>
+      </div>
+    </header>
+
+    <!-- Messages -->
+    <main id="messages" class="flex-1 overflow-y-auto">
+      <div id="chat" class="max-w-3xl mx-auto px-4 py-8 space-y-8">
+        <!-- Welcome message -->
+        <div class="flex items-start gap-4">
+          <div class="w-7 h-7 rounded-full bg-zinc-700 flex items-center justify-center text-xs shrink-0 mt-0.5">
+            <i class="fa-solid fa-robot"></i>
+          </div>
+          <div class="flex-1 text-zinc-100 text-sm leading-relaxed pt-0.5">
+            Hello! I'm JOHN. How can I help you today?
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Input -->
+    <footer style="background:#212121" class="border-t border-[#2f2f2f] px-4 py-4">
+      <form id="chat-form" class="relative max-w-3xl mx-auto">
+        <textarea
+          id="user-input"
+          rows="1"
+          placeholder="Message JOHN..."
+          class="w-full resize-none text-white placeholder-zinc-500 rounded-2xl px-5 py-3.5 pr-14 text-sm outline-none focus:ring-1 focus:ring-zinc-500 max-h-40 overflow-y-auto"
+          style="background:#2f2f2f; border: 1px solid #3f3f3f;"
+        ></textarea>
+        <button
+          type="submit"
+          id="send-btn"
+          class="absolute right-3 bottom-2.5 p-1.5 rounded-lg bg-white hover:bg-zinc-200 disabled:opacity-30 disabled:cursor-not-allowed transition"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5" />
+            <polyline points="5 12 12 5 19 12" />
+          </svg>
+        </button>
+      </form>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
