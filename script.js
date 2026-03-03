@@ -59,7 +59,7 @@ function createBubble(isUser) {
   if (isUser) {
     wrapper.className = 'flex justify-end';
     const bubble = document.createElement('div');
-    bubble.className = 'text-white text-sm rounded-3xl px-5 py-3 max-w-[85%] whitespace-pre-wrap';
+    bubble.className = 'text-white text-sm rounded-3xl px-5 py-3 max-w-[85%] whitespace-pre-wrap [overflow-wrap:anywhere]';
     bubble.style.background = '#2f2f2f';
     wrapper.appendChild(bubble);
     chat.appendChild(wrapper);
