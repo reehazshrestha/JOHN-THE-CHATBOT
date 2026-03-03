@@ -39,7 +39,7 @@
       ::-webkit-scrollbar-thumb { background: #3f3f3f; border-radius: 3px; }
     </style>
   </head>
-  <body class="text-white h-screen flex flex-col">
+  <body class="text-white flex flex-col" style="height: 100vh; overflow: hidden;">
 
     <!-- Header -->
     <header class="border-b border-[#2f2f2f] px-6 py-3 flex items-center gap-3" style="background:#212121">
@@ -49,6 +49,9 @@
       <div>
         <p class="font-semibold text-sm">JOHN</p>
         <p class="text-xs text-green-400">Online</p>
+      </div>
+      <div class="ml-auto text-xs text-zinc-500">
+        Made by <span class="text-zinc-400">Reehaz Shrestha</span> · Nepal
       </div>
     </header>
 
@@ -61,7 +64,7 @@
             <i class="fa-solid fa-robot"></i>
           </div>
           <div class="flex-1 text-zinc-100 text-sm leading-relaxed pt-0.5">
-            Hello! I'm JOHN. How can I help you today?
+            Hello! I'm <strong>JOHN</strong>, an AI assistant created by <strong>Reehaz Shrestha</strong>, a 12th grade student from Nepal. How can I help you today?
           </div>
         </div>
       </div>
